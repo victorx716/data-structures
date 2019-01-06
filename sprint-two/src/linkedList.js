@@ -24,7 +24,7 @@ var LinkedList = function() {
 
     list.head = list.tail;
     
-    return temp
+    return temp;
   };
 
   list.contains = function(target) {
@@ -38,11 +38,11 @@ var LinkedList = function() {
       if (loc.value === target) {
         return true;
       } else if (loc.next === null) {
-          return false;
+        return false;
       } else {
-          return traverse(loc.next, target)
+        return traverse(loc.next, target);
       }
-    }
+    };
     return traverse(loc, target);
   };
 
