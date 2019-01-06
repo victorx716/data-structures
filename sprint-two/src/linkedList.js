@@ -12,12 +12,6 @@ var LinkedList = function() {
       list.tail.next = Node(value);
       list.tail = list.tail.next;
     }
-    
-    //.addToTail() method, takes a value and adds it to the end of the list
-    // current list.tail -> value;
-    //list.tail = value; 
-    //value.list = null;
-    //value.tail = tail;
   };
 
   list.removeHead = function() {
@@ -29,10 +23,6 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-    //variable for if target was found
-    //base case of if list.head.next === target 
-    //else variable === false
-    // let isTrue;
     let loc = list.head;
 
     let traverse = function(loc, target) {
@@ -61,4 +51,7 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * add- constant
+ * remove- constant
+ * contains linear
  */
