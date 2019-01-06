@@ -1,3 +1,4 @@
+
 var LinkedList = function() {
   var list = {};
   list.head = null;
@@ -22,7 +23,7 @@ var LinkedList = function() {
   list.removeHead = function() {
     let temp = list.head.value;
 
-    list.head = list.tail;
+    list.head = list.head.next;
     
     return temp;
   };
