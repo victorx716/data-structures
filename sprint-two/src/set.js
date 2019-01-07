@@ -24,4 +24,7 @@ setPrototype.remove = function(item) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * 
+ * 
+ * O(1): Given a item, we can use that to directly access the storage object's key:value pair of the set 
  */

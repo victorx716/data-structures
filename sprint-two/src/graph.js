@@ -28,7 +28,7 @@ Graph.prototype.removeNode = function(node) {
   //   }
   //   delete this.node;
   // }
-  delete this.nodes[node];
+  delete this.nodes[node];  
   for (var key in this.nodes) {
     if (this.nodes[key][node]) {
       delete this.nodes[key][node]
@@ -47,8 +47,8 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
   // if (this.contains(fromNode) && this.contains(toNode)) {
   //   this[fromNode].edges[toNode] = true;
   //   this[toNode].edges[fromNode] = true;
- this.nodes[fromNode][toNode] = true;
- this.nodes[toNode][fromNode] = true; 
+ this.nodes[fromNode][toNode] = 'hack';
+ this.nodes[toNode][fromNode] = 'reactor'; 
 };
 
 // Remove an edge between any two specified (by value) nodes.
@@ -63,13 +63,15 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
-  for (var key in this.nodes) {
-    cb(key, this.nodes[key])
+  for (var node in this.nodes) {
+    cb(node)
   }
 };
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * 
+ * 
  */
 
 
