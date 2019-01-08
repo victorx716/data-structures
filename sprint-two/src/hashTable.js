@@ -1,63 +1,74 @@
 var HashTable = function() {
   this._limit = 8;
   this._storage = LimitedArray(this._limit);
-
 };
 
 HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-
-  // --> storage [ [key, value], ...]
-  // storage => [[[key, value], [key, value] ], ['7', true] ]
-  /*
-  for loop {
-    iterate through _storage.length
-    if element is an array and is not defined, then we push in the key and value.
-    1. if it is a subarray we can push stuff into it 
-    2. create an array _storage[i] = empty array 
-      a. have index _storage[i].push json.stringify the key, value in 
-    3. no return value
+  //trying to get bucket with this current index
+  var bucket = this._storage[index];
+  
+  //if bucket does not exist, create one and insert into hash table
+  if (!bucket) {
+    bucket = [];
+    this._storage[index] = bucket;
   }
-  */
-  let pikachu = this._storage;
-  let raichu = this._storage[index];
 
-  for ( let i = 0; i < this._storage.length; i++){
-    if (!Array.isArray(pikachu[i])) {
-      pikachu[i] = [];
-      //insert the value into here if its the correct index
-      // pikachu[i].set(k, v);
-      //verify the index
-    }  
+  var overRide = false;
+  
+  //should any collisions occur, override them
+  for (var i = 0; i < bucket.length; i++) {
+    var tuple = bucket[i];
+    if (tuple[0] === k) {
+      tuple[1] = v;
+      overRide = true;
+    }
   }
-    pikachu.set(index, [k, v]);
 
+  //keys have the same index
+  if (!overRide) {
+    bucket.push([k, v]);
+  }
 };
 
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  let pikachu = this._storage;
-  let raichu = this._storage[index];
+  var bucket = this._storage[index];
 
-  for (var j = 0; j < pikachu.get(index).length; j++) {
-    if ((pikachu.get(index)[j][0]).indexOf(k) !== -1) {
-      return pikachu.get(index)[j][1]
+  if (!bucket) {
+    return undefined;
+  }
+  //if the key exists within the tuple  [[k, v], [k, v], [other tuples..]]..return the value associated with it
+  for (var i = 0; i < bucket.length; i++) {
+    var tuple = bucket[i];
+    if (tuple[0] === k) {
+      return tuple[1];
     }
   }
+  return undefined;
 };
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  let pikachu = this._storage;
-  let raichu = this._storage[index];
-  pikachu.set(index, undefined);
+
+  var bucket = this._storage[index];
+
+  if (!bucket) {
+    return undefined;
+  }
+  //iterating to verify if key exists within bucket and remove the tuple
+  for (var i = 0; i < bucket.length; i++) {
+    var tuple = bucket[i];
+    if (tuple[0] === k) {
+      bucket.splice(i, 1);
+      return tuple[1]; 
+    }
+  }
 
 };
-
 
 
 /*
  * Complexity: What is the time complexity of the above functions?
  */
-
 
