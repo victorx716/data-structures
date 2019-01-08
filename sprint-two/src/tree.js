@@ -16,6 +16,7 @@ treeMethods.addChild = function(value) {
 
 treeMethods.contains = function(target) {
   let doesContain = function (node, target) {
+
     if (node.value === target) {
       return true;
     }

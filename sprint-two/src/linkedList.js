@@ -12,6 +12,7 @@ var LinkedList = function() {
       list.tail.next = Node(value);
       list.tail = list.tail.next;
     }
+
   };
 
   list.removeHead = function() {
@@ -23,6 +24,7 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
+
     let loc = list.head;
 
     let traverse = function(loc, target) {
@@ -51,7 +53,9 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+
  * add- constant
  * remove- constant
  * contains linear
+
  */
