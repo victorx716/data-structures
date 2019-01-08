@@ -5,7 +5,6 @@ var Queue = function() {
   var storage = {};
   let lastIn = 0;
   let firstOut = 0;
-  let size = lastIn; //for clarity
 
   // Implement the methods below
 
