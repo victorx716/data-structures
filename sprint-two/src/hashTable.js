@@ -56,10 +56,11 @@ HashTable.prototype.remove = function(k) {
   if (!bucket) {
     return undefined;
   }
-  //iterating to verify if key exists within bucket and remove the tuple
+  //iterating to verify if key exists within bucket
   for (var i = 0; i < bucket.length; i++) {
     var tuple = bucket[i];
     if (tuple[0] === k) {
+      //remove the tuple
       bucket.splice(i, 1);
       return tuple[1]; 
     }
