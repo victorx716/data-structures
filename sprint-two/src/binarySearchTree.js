@@ -17,6 +17,7 @@ var BinarySearchTree = function(value) {
         tree.left = node;
       } else if (tree.value > value) {
         traverse(tree.left);
+        //have to test the left side before the right side. order matters
       } else if (tree.value < value && tree.right === undefined) {
         tree.right = node;
       } else if (tree.value < value) {
