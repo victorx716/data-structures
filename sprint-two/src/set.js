@@ -1,6 +1,6 @@
 var Set = function() {
   var set = Object.create(setPrototype);
-  set._storage = {}; // fix me
+  set._storage = {}; 
   return set;
 };
 
@@ -24,7 +24,6 @@ setPrototype.remove = function(item) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
- * 
- * 
- * O(1): Given a item, we can use that to directly access the storage object's key:value pair of the set 
+ * O(1) for all functions: Given a item, we can use that to directly
+ *  access the storage object's key:value pair of the set 
  */

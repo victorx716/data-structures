@@ -53,9 +53,7 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
-
- * add- constant
- * remove- constant
- * contains linear
-
+ * add- constant, O(1)
+ * remove- constant, O(1)
+ * contains linear, O(n)
  */

@@ -15,14 +15,14 @@ var Queue = function() {
 
   someInstance.dequeue = function() {
   //is the queue empty?
-  if (lastIn - firstOut === 0) {
-    return undefined;
-  }
+    if (lastIn - firstOut === 0) {
+      return undefined;
+    }
 
-  var leaveTheQueue = storage[firstOut]
-  delete storage[firstOut];
-  firstOut++;
-  return leaveTheQueue;
+    var leaveTheQueue = storage[firstOut]
+    delete storage[firstOut];
+    firstOut++;
+    return leaveTheQueue;
 
   // { 0: Bob, 1: Jacob, 2: Mike}
   };

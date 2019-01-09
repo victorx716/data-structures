@@ -73,5 +73,10 @@ HashTable.prototype.remove = function(k) {
  * Complexity: What is the time complexity of the above functions?
  * Linear in worst case because it will have to search through everything
  * Constant in best case if item is found with a given index right away without having to iterate through the outer array
+ * 
+ * function time complexities
+ * Insert: constant in regards to the input parameters
+ * Retrieve: linear, with the worst case being O(n). Best case is O(n/(bucket size))
+ * Remove: _.extend(Remove, Retrieve);
  */
 

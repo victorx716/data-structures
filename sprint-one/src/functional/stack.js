@@ -1,3 +1,5 @@
+//functional
+
 var Stack = function() {
   var someInstance = {};
 
